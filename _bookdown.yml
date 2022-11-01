@@ -5,7 +5,7 @@ edit: https://github.com/yuehanhu/footballplayervalue/edit/main/%s
 view: https://github.com/yuehanhu/footballplayervalue/blob/main/%s
 language:
   ui:
-    chapter_name: "Final Project "
+    chapter_name: "Chapter "
 
 rmd_files: [
   'index.Rmd',
