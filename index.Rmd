@@ -1,9 +1,19 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAMES HERE"
+title: "Football Players' Value and Wage"
+author: "Yuehan Hu & Wenchen"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
 # Introduction
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
+
+Introduction:
+There are a lot of datasets on kaggle, I chose the Football (FIFA - 2019) Dataset.
+This Dataset Contains all Information of players who participated in the FIFA-2019 League.
+This Dataset consists of 89 Features including the parameters, by which a Player's ability can be measured some of the parameters included in the dataset are,
+Age, Skill Moves, Work Rate, Body Type, joined year, Agility.
+This data set is large and can be used for data cleaning, data transformation, missing value processing, and data visualization, to explore the factors that affect Football Players' Value and Wage, and to explore the factors affecting Football Players' Value and Wage in a multi-dimensional way. factors to explore which factors have a significant impact on Football Players' Value and Wage.
