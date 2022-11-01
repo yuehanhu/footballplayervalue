@@ -1,6 +1,38 @@
-# Proposal
+---
+title: "Proposal"
+author: 'Yuehan Hu & Wen Chen'
+date: '2022-10-29'
+output: html_document
+---
 
-## Research topic
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
-## Data availability
+Proposal:
+Analysis of Factors Affecting Football Players' Value and Wage
+It is well known that players' Value and Wage are affected by multiple factors, and there are many differences in Wage of different players. We will explore the factors that affect players' Value and Wage through data visualization.
+This Dataset Contains all Information of players who participated in the FIFA-2019 League.
+This Dataset consists of all the parameters, which a Player's ability can be measured
+some of the parameters included in the dataset .This article will explore the factors that affect player Value and Wage through data visualization methods.
+Data sources:
+Football (FIFA - 2019) Dataset
+Football (FIFA-2019) World Cup Dataset of Players' Statistics with Notebook
+This Dataset consists of 89 variables.
+Age: Age of Player
+Skill Moves: Describes various skill set of the player
+Work Rate: Work rate of player
+Body Type: Body type of player (like High, lean, Courtois, moderate)
+joined year: Joining year of player
+Agility: Agility of player (numerical values)
+SprintSpeed: Sprinting Speed of player
+Reactions: Reaction on the Numerical Scale
+Potential: player's potential
+Overall: All-round ability of players
+URL: (https://www.kaggle.com/datasets/devansodariya/football-fifa-2019-dataset?resource=download)
+
+
+
+
+
 
