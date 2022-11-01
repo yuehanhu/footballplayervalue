@@ -1,7 +1,7 @@
 This is a template for the EDAV final project. It is based on the template created with *File, New Project..., New Directory, Book Project using bookdown* in RStudio. 
 
 
-## ABSOLUTE ESSENTIALS
+## ABSOLUTE ESSENTIALS 
 
 *If you have any difficulties or have feedback of any kind, please file an issue or communicate through [Discussions](https://github.com/jtr13/EDAVtemplate/discussions).*
 
