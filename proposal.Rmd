@@ -7,26 +7,78 @@ output: html_document
 
 # Proposal:
 
-Analysis of Factors Affecting Football Players' Value and Wage
-It is well known that players' Value and Wage are affected by multiple factors, and there are many differences in Wage of different players. We will explore the factors that affect players' Value and Wage through data visualization.
-This Dataset Contains all Information of players who participated in the FIFA-2019 League.
-This Dataset consists of all the parameters, which a Player's ability can be measured
-some of the parameters included in the dataset .This article will explore the factors that affect player Value and Wage through data visualization methods.
-Data sources:
-Football (FIFA - 2019) Dataset
-Football (FIFA-2019) World Cup Dataset of Players' Statistics with Notebook
-This Dataset consists of 89 variables.
+2.1 Research topic
+
+In today's professional football market, how to quantify the professional skills of players, and whether their annual performance can be predicted based on the players' information will directly affect our judgment of their commercial value. Through certain visualization and statistical learning methods, the influencing factors of players' professional judgment are explored, and the interesting patterns between players' personal information and annual reactions are driven from data. 
+
+Questions:
+
+Q1: Explore the factors that affect player Value through a variety of data visualization methods.
+
+Q2: Through a variety of data visualization methods, explore the factors that affect the player's Wage, which factors have a significant impact on the player's Wage, and make a comparative analysis with the factors that affect the player's Value.
+
+2.2 Data availability
+
+There are a lot of datasets on kaggle webside, we together chose the Football (FIFA - 2019) dataset. The link is 
+URL: (https://www.kaggle.com/datasets/devansodariya/football-fifa-2019-dataset?resource=download).
+
+This Dataset Contains all Information of players who participated in the
+FIFA-2019 League and consists of all the parameters, which a Player's ability can be measured some of the parameters included in the dataset. Our project will explore the factors that affect player Value and Wage through data visualization methods. The dataset includes 18,207 rows, 89 columns, and mainly includes the following fields.
+
+This Dataset consists of 89 Features including the parameters, by which a Player's ability can be measured some of the parameters included in the dataset are,
+Age, Skill Moves, Work Rate, Body Type, joined year, Agility.
+This data set is large and can be used for data cleaning, data transformation, missing value processing, and data visualization, to explore the factors that affect Football Players' Value and Wage, and to explore the factors affecting Football Players' Value and Wage in a multi-dimensional way. factors to explore which factors have a significant impact on Football Players' Value and Wage.
+
+This Dataset consists of 89 variables:
+ID.
+
+Name:Name of Player
+
 Age: Age of Player
-Skill Moves: Describes various skill set of the player
-Work Rate: Work rate of player
-Body Type: Body type of player (like High, lean, Courtois, moderate)
-joined year: Joining year of player
-Agility: Agility of player (numerical values)
-SprintSpeed: Sprinting Speed of player
-Reactions: Reaction on the Numerical Scale
-Potential: player's potential
+
+Photo:Photo of Player
+
+Nationality:Nationality of Player
+
+Flag:Flag of Player
+
 Overall: All-round ability of players
-URL: (https://www.kaggle.com/datasets/devansodariya/football-fifa-2019-dataset?resource=download)
+
+Potential: player's potential
+
+Club:Club of players
+
+Value:Value of players
+
+Wage: Wage of players
+
+Preferred.Foot: Left or Right.
+
+International.Reputation: International Reputation of players
+
+Weak.Foot: Weak Foot
+
+Skill Moves: Describes various skill set of the player
+
+Work Rate: Work rate of player
+
+Body Type: Body type of player (like High, lean, Courtois, moderate)
+
+Real.Face:Real Face(Yes or NO)
+
+Joined: Joining year of player
+
+Height:Height of players.
+
+Weight:Weight of players.
+
+Agility: Agility of player (numerical values)
+
+SprintSpeed: Sprinting Speed of player
+
+Reactions: Reaction on the Numerical Scale
+etc...
+
 
 
 
