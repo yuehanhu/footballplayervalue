@@ -1,15 +1,12 @@
 ---
-title: "Proposal"
+title: "Football Players' Value and Wage"
 author: 'Yuehan Hu & Wen Chen'
 date: '2022-10-29'
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# Proposal:
 
-Proposal:
 Analysis of Factors Affecting Football Players' Value and Wage
 It is well known that players' Value and Wage are affected by multiple factors, and there are many differences in Wage of different players. We will explore the factors that affect players' Value and Wage through data visualization.
 This Dataset Contains all Information of players who participated in the FIFA-2019 League.

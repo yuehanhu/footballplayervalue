@@ -6,12 +6,7 @@ site: bookdown::bookdown_site
 ---
 
 # Introduction
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
-
-Introduction:
 There are a lot of datasets on kaggle, I chose the Football (FIFA - 2019) Dataset.
 This Dataset Contains all Information of players who participated in the FIFA-2019 League.
 This Dataset consists of 89 Features including the parameters, by which a Player's ability can be measured some of the parameters included in the dataset are,
