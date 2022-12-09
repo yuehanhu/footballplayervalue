@@ -1,1 +1,175 @@
 # Results
+## COVID-19 Trend Analysis
+First, observe the general development of COVID-19 in the United States. The sum of data on cases was calculated for each state by date classification, and these data included new, cumulative, and historical cumulative data. The graphs of total cases and total deaths demonstrate a number of characteristics. First, total Cases increases at the beginning of 2021 and shows a substantial increase at the beginning of 2022, which raises the question whether the increase in Cases is due to seasonal factors or to policy easing.\
+```{r}
+# Library packages
+library(ggplot2)
+library(gridExtra)
+library(usmap)
+library(cowplot)
+pt1=dt.all%>%
+  group_by(Date)%>%
+  summarise(tot_cases=sum(tot_cases),new_cases=sum(new_cases),tot_deaths=sum(tot_deaths),new_deaths=sum(new_deaths))
+# Plot
+ggplot(pt1)+
+  theme_bw()+
+  geom_line(aes(x=Date,y=tot_cases/10000000,col='Total Cases'))+ylab('Number(10e7)')
+```
+Next, a graph of total deaths over time is drawn. Total Deaths show the same upward trend at the beginning of 2021 and the beginning of 2022.\
+```{r}
+# Wide to long
+library(data.table)
+pt2 <- melt(setDT(pt1), id.vars = "Date", variable.name = "Type")
+pt2$Date=as.numeric(pt2$Date)
+pt2$Date=pt2$Date-min(pt2$Date)
+write.csv(pt2,'pt1.csv',row.names=FALSE)
+ggplot(pt1)+
+    theme_bw()+
+geom_line(aes(x=Date,y=tot_deaths/100000,col='Total Deaths'))+ylab('Number(10e5)')
+
+```
+
+Then, the graphs of new cases and new deaths are plotted, and the number of new cases can reflect the changes over time more visually. 2021 starts with more new cases, and then the number of new cases gradually decreases. At the beginning of 2022, the number of new cases reaches a very high peak, and then declines again.\
+```{r}
+# Plot
+ggplot(pt1)+
+  theme_bw()+
+  geom_line(aes(x=Date,y=new_cases/100000,col='New Cases'))+ylab('Number(10e5)')
+```
+New deaths are highest at the beginning of 2021 and then reach a low in July 2021. new deaths rise again in late 2021 and early 2022, and then fall again to a low.\
+```{r}
+ggplot(pt1)+
+    theme_bw()+
+geom_line(aes(x=Date,y=new_deaths/1000,col='New Deaths'))+ylab('Number(10e3)')
+
+```
+
+## Vaccine Status Analysis
+The vaccine DISTRIBUTION is plotted separately at the end of the last three years (December 30, 2020, December 29, 2021, and November 16, 2022). This is shown in the US map and is expressed as distribution per 100 thousand to eliminate scale effects.
+The results show essentially no vaccine distribution at the end of 2020. there is a fair amount of distribution across the US at the end of 2021, with slightly more vaccines (darker colors) in the East and West. By 2022, the distribution of vaccines is more pronounced, mainly in the northern part of the United States, especially in the Northeast and Northwest.\
+```{r}
+pt2=dt.all[,c(1,2,4)]
+names(pt2)[2]='state'
+# Plot 2020
+plot_usmap(data = pt2[dt.all$Date=='2020-12-30',], values = "Dist_Per_100K", color = "blue") + 
+  scale_fill_continuous(low = "white", high = "blue", name = "Distribution Per 100K", label = scales::comma,limits = c(0,380000)) + 
+  labs(title = "Vaccine Distribution", subtitle = "At 2020-12-30") +
+  theme(legend.position = "right")
+# Plot 2021
+plot_usmap(data = pt2[dt.all$Date=='2021-12-29',], values = "Dist_Per_100K", color = "blue") + 
+  scale_fill_continuous(low = "white", high = "blue", name = "Distribution Per 100K", label = scales::comma,limits = c(0,380000)) + 
+  labs(subtitle = "At 2021-12-29") +
+  theme(legend.position = "right")
+# Plot 2022
+plot_usmap(data = pt2[dt.all$Date=='2022-11-16',], values = "Dist_Per_100K", color = "blue") + 
+  scale_fill_continuous(low = "white", high = "blue", name = "Distribution Per 100K", label = scales::comma,limits = c(0,380000)) + 
+  labs(subtitle = "At 2022-11-16") +
+  theme(legend.position = "right")
+
+```
+Similarly, data on the percentage of the population with vaccine series complete are plotted in the map of the U.S. At the end of 2020, there is no vaccine offered for vaccination. at the end of 2021, the series vaccination rate for states in the eastern, western, and south-central U.S. is already over 50%. By the end of 2022, most states have more than 50% vaccination coverage.\
+```{r}
+pt3=dt.all[,c(1,2,6)]
+names(pt3)[2]='state'
+# Plot 2020
+plot_usmap(data = pt3[pt3$Date=='2020-12-30',], values = "Series_Complete_Pop_Pct", color = "red") + 
+  scale_fill_continuous(low = "white", high = "red", name = "Series Complete Percentage", label = scales::comma,limits = c(0,100)) + 
+  labs(title = "Vaccine Series Complete Percentage", subtitle = "At 2020-12-30") +
+  theme(legend.position = "right")
+# Plot 2021
+plot_usmap(data = pt3[pt3$Date=='2021-12-29',], values = "Series_Complete_Pop_Pct", color = "red") + 
+  scale_fill_continuous(low = "white", high = "red", name = "Series Complete Percentage", label = scales::comma,limits = c(0,100)) + 
+  labs(subtitle = "At 2021-12-29") +
+  theme(legend.position = "right")
+# Plot 2022
+plot_usmap(data = pt3[pt3$Date=='2022-11-16',], values = "Series_Complete_Pop_Pct", color = "red") + 
+  scale_fill_continuous(low = "white", high = "red", name = "Series Complete Percentage", label = scales::comma,limits = c(0,100)) + 
+  labs(subtitle = "At 2022-11-16") +
+  theme(legend.position = "right")
+```
+
+To explore whether the vaccine is effective in reducing the severity of the epidemic, the report chose one of the states, Califonia (CA), to draw graphs of change of vaccine distribution, change of vaccination complete rates, change of additional vaccination rates, new cases, and new deaths. and keeping the same timeline.\
+```{r}
+pt.ca=dt.all[dt.all$State=='CA',]
+pt.ca$d_Dist_Per_100K=pt.ca$Dist_Per_100K-lag(pt.ca$Dist_Per_100K,1)
+pt.ca$d_Series_Complete_Pop_Pct=pt.ca$Series_Complete_Pop_Pct-lag(pt.ca$Series_Complete_Pop_Pct,1)
+pt.ca$d_Additional_Doses_Vax_Pct=pt.ca$Additional_Doses_Vax_Pct-lag(pt.ca$Additional_Doses_Vax_Pct,1)
+# Plot
+p1=ggplot(pt.ca)+
+  theme_bw()+
+  geom_line(aes(x=Date,y=d_Dist_Per_100K/10000,col='Change in Distribution/100K'))+ylab('Number(10e4)')+
+  ggtitle('COVID-19 and Vaccine in California')
+p2=ggplot(pt.ca)+
+    theme_bw()+
+  geom_line(aes(x=Date,y=d_Additional_Doses_Vax_Pct,col='Additional Doses'))+
+geom_line(aes(x=Date,y=d_Series_Complete_Pop_Pct,col='Complete Series'))+ylab('Percentage')+ylab('Percentage')
+  
+p3=ggplot(pt.ca)+
+  theme_bw()+
+  geom_line(aes(x=Date,y=new_cases/10000,col='New Cases'))+ylab('Number(10e4)')
+p4=ggplot(pt.ca)+
+    theme_bw()+
+geom_line(aes(x=Date,y=new_deaths/100,col='New Deaths'))+ylab('Number(10e2)')
+plot_grid(p1, p2, p3,p4, align = "v", nrow = 4, rel_heights = c(5/17, 4/17,4/17, 4/17))
+
+```
+The time series plot set shows that both new cases and new DEATHs decline significantly in 2021 as VACCINE series complete and VACCINE distribution rise. However, the epidemic rebounded sharply again in late 2021 to early 2022, even with the emergence of ADDITIONAL DOSE. Subsequently, additional dose rises again and the epidemic growth rate slows down. This suggests that while vaccine can improve the epidemic, the determinants of the epidemic may lie elsewhere, such as policy.
+
+## Policy Analysis
+First, the presentation of policy data. Each policy and the possible values to be taken are shown below.
+```{r}
+policy=dt.all[,8:20]
+knitr::kable(list(data.frame(`Stay at Home Orders`=unique(dt.all$`Policy.Value.Stay at Home Orders`)),
+                  data.frame(`Gathering Bans`=unique(dt.all$`Policy.Value.Gathering Bans`)),
+                  data.frame(`School closing`=unique(dt.all$`Policy.Value.School closing`)),
+                  data.frame(`Cancel public events`=unique(dt.all$`Policy.Value.Cancel public events`))),booktabs = TRUE, valign = 't')
+
+knitr::kable(list(data.frame(`Close public transport`=unique(dt.all$`Policy.Value.Close public transport`)),
+                  data.frame(`Mask Mandates`=unique(dt.all$`Policy.Value.Mask Mandates`)),
+                  data.frame(`International travel controls`=unique(dt.all$`Policy.Value.International travel controls`))
+                  ),booktabs = TRUE, valign = 't')
+
+```
+Clearly, each policy has a different intensity of implementation. The report will mainly analyze the most frequently discussed policies as a proxy for other policies. The selected policies include Gathering Bans and Mask Mandates. also, each policy is assigned a policy intensity in order of lightest to heaviest. This can quantify policy implementation efforts.
+$$\text{Policy Stringen}_i=\frac{Rank_i}{Max(Rank_j)-Min(Rank_j)}$$
+Using CA as an example, a time series plot of the intensity of implementation of the two policies versus additional cases and deaths is drawn. The following results illustrate that when Gathering Bans and Mask Mandates are relaxed, they cause a temporary bounce in new cases and deaths.\
+```{r}
+GB=dt.all$`Policy.Value.Gathering Bans`
+GB[GB=='No data' | GB=='No restrictions' | GB=='No order found' ]=0
+GB[GB=='Restrictions on gatherings between 11-100 people' | GB=='Ban of gatherings over 25-50 people']=1
+GB[GB=='Ban of gatherings over 1-10 people' | GB=='Restrictions on gatherings of 10 people or less']=2
+GB[GB=='Bans gatherings of any size']=3
+MM=dt.all$`Policy.Value.Mask Mandates`
+MM[MM=='No data' | MM=='No Public Mask Mandate']=0
+MM[MM=='Required in some specified shared/public spaces outside the home with other people present, or some situations when social distancing not possible']=1
+MM[MM=='Required in all shared/public spaces outside the home with other people present or all situations when social distancing not possible']=2
+MM[MM=='Public Mask Mandate' | MM=='Required outside the home at all times regardless of location or presence of other people']=3
+pt2=data.frame(Date=as.numeric(dt.all$Date),state=dt.all$State,Series=dt.all$Series_Complete_Pop_Pct)
+pt2$Date=pt2$Date-min(pt2$Date)
+pt3=data.frame(Date=as.numeric(dt.all$Date),state=dt.all$State,Series=MM)
+pt3$Date=pt3$Date-min(pt3$Date)
+write.csv(pt2,'pt2.csv',row.names = F)
+write.csv(pt3,'pt3.csv',row.names = F)
+GB=GB[dt.all$State=='CA']
+MM=MM[dt.all$State=='CA']
+pt.ca$GB=GB
+pt.ca$MM=MM
+# Plot
+p1=ggplot(pt.ca)+
+  theme_bw()+
+  geom_point(aes(x=Date,y=GB,col='Gathering Bans'))+ylab('Stringen')+
+  ggtitle('COVID-19 and Policy Stringen in California')
+p2=ggplot(pt.ca)+
+    theme_bw()+
+  geom_point(aes(x=Date,y=MM,col='Mask Mandates'))+
+  ylab('Stringen')
+p3=ggplot(pt.ca)+
+  theme_bw()+
+  geom_line(aes(x=Date,y=new_cases/10000,col='New Cases'))+ylab('Number(10e4)')
+p4=ggplot(pt.ca)+
+    theme_bw()+
+geom_line(aes(x=Date,y=new_deaths/100,col='New Deaths'))+ylab('Number(10e2)')
+plot_grid(p1, p2, p3,p4, align = "v", nrow = 4, rel_heights = c(5/17, 4/17,4/17, 4/17))
+
+```
+
