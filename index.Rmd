@@ -1,6 +1,6 @@
 --- 
 title: "An Analysis Based on Epidemic Policy"
-author: "Yuehan Hu & Wenchen"
+author: "Yuehan Hu & Wen Chen"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
