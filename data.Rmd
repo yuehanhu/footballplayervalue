@@ -1,8 +1,92 @@
 # Data 
 
 ## Sources
+All outbreak-related data used in this report are from the Centers for Disease (CDC) Control and Prevention, available at https://covid.cdc.gov/covid-data-tracker/#datatracker-home. Also, the geographic data for the visualization of states across the United States will be based on some R packages, which are implemented by calling functions, as described in the following sections.
+The data source home page presents data from the following sections: 1. Case, Death, & Laboratory Testing Trends by Location. 2. Case & Death Trends by Demographics. 3. Vaccination Distribution & Coverage. 4. Vaccine Effectiveness & Breakthrough Surveillance. 5. Health Equity Data. 6. Pediatric Data. 7. Pregnancy Data. 8. People Who Are at Increased Risk. 9. Wastewater Surveillance. 10. Health Care Settings. 11. Social Impact & Prevention. 12. Variants & Genomic Surveillance. 13. Antibody Seroprevalence. 14. Innovative Support for Patients with SARS-CoV-2 Infections (INSPIRE): Prospective cohort study. 15. Traveler-Based Genomic Surveillance for SARS-CoV-2. 16. Additional COVID-related Data.
+This report expects to analyze trends in the development of the epidemic and present this result through a time series plot. Then, by analyzing the vaccine coverage and the implementation of epidemic prevention policies in each state, effective measures to mitigate the epidemic will be sought. Therefore, the target dataset will include COVID-19 cases, DEATHS, vaccine distribution by state and anti-epidemic policies implemented by state, etc. However, some of the datasets do not have significant analytical utility for the target questions, such as health equity, pediatric and prevalence data, and are therefore not considered in this report.
+The main variables in the Vaccine dataset include date, the Morbidity and Mortality Weekly Report (MMWR), location, number of delivered doses, number of administered doses based on the jurisdiction, vaccination status, and booster vaccination status.
+```{r}
+# Library packages
+library(dplyr)
+library(tidyr)
+library(mice)
+# Read data
+vaccine=read.csv('COVID-19_Vaccinations_in_the_United_States_Jurisdiction.csv')
+policy=read.csv('Overlay Bars_Full Data_data.csv')
+cases=read.csv('Weekly_United_States_COVID-19_Cases_and_Deaths_by_State.csv')
+knitr::kable(data.frame(Variables=names(vaccine),Value=as.vector(as.matrix(vaccine[1,]))))
+```
+Policy data includes the source of the data, the name of the policy, the date it was issued, the content of the policy, and the state in which it was issued.
+```{r}
+knitr::kable(data.frame(Variables=names(policy),Value=as.vector(as.matrix(policy[1,]))))
+```
+Cases data includes the following variables: update date, state, start and end date. It also includes the addition of cases, deaths, current cumulative number and historical cumulative number.
+```{r}
+knitr::kable(data.frame(Variables=names(cases),Value=as.vector(as.matrix(cases[1,]))))
+```
+
 
 ## Cleaning / transformation
+First, as a whole, some of the variables in the dataset may not be used in subsequent analyses. Therefore, directly eliminating these variables from the dataset helps to reduce the computational process as well as the cognitive burden. The variables that are relevant to the subject matter of the report and the content of the study, as well as the proportional variables that can be used as comparisons between states, were mainly retained.
+Then, the number of variables and observations obtained is as follows.
+```{r}
+selec.var.vaccine=c("Date",'MMWR_week','Location','Dist_Per_100K','Admin_Per_100K','Series_Complete_Pop_Pct','Additional_Doses_Vax_Pct')
+vaccine=vaccine[,names(vaccine)%in%selec.var.vaccine]
+selec.var.cases=c('state','end_date','tot_cases','new_cases','tot_deaths','new_deaths','new_historic_cases','new_historic_deaths')
+cases=cases[,names(cases)%in%selec.var.cases]
+
+knitr::kable(data.frame(Data=c('Vaccine','Policy','Cases'),`Variables Number`=c(ncol(vaccine),ncol(policy),ncol(cases)),`Observation Number`=c(nrow(vaccine),nrow(policy),nrow(cases))))
+```
+
 
 ## Missing value analysis
+Since the original dataset is long format, this means that most of observations are valid data and only Additional_Doses_Vax_Pct have missing observations with proportion of 88.10453%. A graph on the percentage of missing values in the dataset can prove this.
+```{r}
+p <- function(x) {sum(is.na(x))/length(x)*100}
+knitr::kable(list(apply(vaccine, 2, p),apply(policy, 2, p),apply(cases, 2, p)),booktabs = TRUE, valign = 't')
+
+```
+But this does not mean that the data is complete, because when the data set is converted to wide format or merged with other data sets, some missing values on the date will appear. For a more subsequent and convenient analysis, the three datasets need to be merged into a combined dataset. The merge process needs to retain all possible missing values for the analysis below. The merged missing data are as follows.
+```{r}
+# Format Date
+vaccine$Date=as.Date(vaccine$Date,'%m/%d/%Y')
+names(policy)[3]='Date'
+policy$Date=as.Date(policy$Date,'%d-%b-%y')
+names(cases)[2]='Date'
+cases$Date=as.Date(cases$Date)
+# State to abb.
+names(vaccine)[3]='State'
+names(policy)[5]='State'
+policy$State=state.abb[match(policy$State,state.name)]
+names(cases)[1]='State'
+# Policy Long to Wide
+policy=policy[,-1]
+policy=reshape(policy, idvar = c("State","Date"), timevar = "Policy.Name", direction = "wide")
+# Merge
+dt.all=merge(vaccine,policy,by=c('Date','State'),all=TRUE)
+dt.all=merge(dt.all,cases,by=c('Date','State'),all=TRUE)
+knitr::kable((apply(dt.all, 2, p)))
+
+```
+Of these, the missing values are larger for cases data, smaller for vaccine data, and medium for policy data. This may be due to the fact that vaccine data are updated more frequently, while case data are updated more slowly.  Since policies are continuous, the last updated policy can be used as a proxy for the missing interval. Then the missing values reduce a lot for policy data.
+```{r}
+dt.all=dt.all %>% 
+  group_by(State) %>% 
+  fill(`Policy.Value.Restaurant Closures`, `Policy.Value.Bar Closures`,
+  `Policy.Value.General Closures`,`Policy.Value.Mask Mandates`,
+  `Policy.Value.Stay at Home Orders`,`Policy.Value.Gathering Bans`,
+  `Policy.Value.International travel controls`,`Policy.Value.School closing`,
+  `Policy.Value.Workplace closing`,`Policy.Value.Close public transport`,
+  `Policy.Value.Cancel public events`,`Policy.Value.Restrictions on internal movement`,
+  `Policy.Value.Public information campaigns`, .direction = "downup")
+knitr::kable((apply(dt.all, 2, p)))
+```
+
+Finally, remove missing observations from the dataset, here mainly short some missing policies and most of the cases data that are in the update interval. At this point, the analysis and processing process of the missing data is completed.
+```{r}
+dt.all=na.omit(dt.all)
+```
+
+
+
 
