@@ -93,6 +93,3 @@ d3.csv("https://raw.githubusercontent.com/nevillefate/EpidemicPolicy/main/pt1.cs
 
 
 
-
-
-

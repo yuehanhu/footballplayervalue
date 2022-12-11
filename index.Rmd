@@ -6,8 +6,6 @@ site: bookdown::bookdown_site
 ---
 
 # Introduction
-
 The COVID-19 outbreak that began in late 2019 and the subsequent introduction of a vaccination policy put the world into an irreversible trend of change. During this period people's lives and health received impact and socio-economic deterioration. Therefore, it is particularly important to quickly and effectively address this infectious disease that affects all of humanity and minimizes negative economic impacts.\
 This report will focus on some key issues regarding the epidemic and epidemic prevention policies. For example, trends in the epidemic, state epidemic control policies in the United States, and how epidemic control policies can mitigate the spread of the epidemic and reduce infection data.\
 The remainder of this report will be developed from the following perspectives: the second section of the report is Proposal, which will introduce the research topic and Data availability. the third section of the report is Data, which will introduce the sources of data, the basic data processing methods and the data processing results. The fourth section of the report is Results, where some pictures will be used to show whether the outbreak prevention and control policies have alleviated the severity of the outbreak. The fifth part is the Interactive component, where the implementation of some policies, such as whether or not states are pursuing mandatory vaccine and mandatory quarantine policies, will be used to show different graphs. Finally, the report will summarize some basic conclusions.
-

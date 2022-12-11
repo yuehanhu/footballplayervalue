@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- saved from url=(0090)file:///Users/shuangmendongwangbaoqiang/Downloads/chart_example_from_d3-graph-gallery.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- Load d3.js -->
+<script src="./chart_example_from_d3-graph-gallery_files/d3.v4.js"></script>
+
+<!-- Initialize a select button -->
+</head><body><select id="selectButton"><option value="Helen">Helen</option><option value="Amanda">Amanda</option><option value="Betty">Betty</option><option value="Dorothy">Dorothy</option><option value="Linda">Linda</option><option value="Deborah">Deborah</option><option value="Jessica">Jessica</option><option value="Patricia">Patricia</option><option value="Ashley">Ashley</option></select>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"><svg width="460" height="400"><g transform="translate(60,10)"><g transform="translate(0,360)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle"><path class="domain" stroke="#000" d="M0.5,6V0.5H370.5V6"></path><g class="tick" opacity="1" transform="translate(0.5,0)"><line stroke="#000" y2="6"></line><text fill="#000" y="9" dy="0.71em">1,880</text></g><g class="tick" opacity="1" transform="translate(55.31481481481481,0)"><line stroke="#000" y2="6"></line><text fill="#000" y="9" dy="0.71em">1,900</text></g><g class="tick" opacity="1" transform="translate(110.12962962962962,0)"><line stroke="#000" y2="6"></line><text fill="#000" y="9" dy="0.71em">1,920</text></g><g class="tick" opacity="1" transform="translate(164.94444444444443,0)"><line stroke="#000" y2="6"></line><text fill="#000" y="9" dy="0.71em">1,940</text></g><g class="tick" opacity="1" transform="translate(219.75925925925924,0)"><line stroke="#000" y2="6"></line><text fill="#000" y="9" dy="0.71em">1,960</text></g><g class="tick" opacity="1" transform="translate(274.5740740740741,0)"><line stroke="#000" y2="6"></line><text fill="#000" y="9" dy="0.71em">1,980</text></g><g class="tick" opacity="1" transform="translate(329.38888888888886,0)"><line stroke="#000" y2="6"></line><text fill="#000" y="9" dy="0.71em">2,000</text></g></g><g fill="none" font-size="10" font-family="sans-serif" text-anchor="end"><path class="domain" stroke="#000" d="M-6,360.5H0.5V0.5H-6"></path><g class="tick" opacity="1" transform="translate(0,360.5)"><line stroke="#000" x2="-6"></line><text fill="#000" x="-9" dy="0.32em">0</text></g><g class="tick" opacity="1" transform="translate(0,324.384430176565)"><line stroke="#000" x2="-6"></line><text fill="#000" x="-9" dy="0.32em">10,000</text></g><g class="tick" opacity="1" transform="translate(0,288.26886035313)"><line stroke="#000" x2="-6"></line><text fill="#000" x="-9" dy="0.32em">20,000</text></g><g class="tick" opacity="1" transform="translate(0,252.15329052969503)"><line stroke="#000" x2="-6"></line><text fill="#000" x="-9" dy="0.32em">30,000</text></g><g class="tick" opacity="1" transform="translate(0,216.03772070626002)"><line stroke="#000" x2="-6"></line><text fill="#000" x="-9" dy="0.32em">40,000</text></g><g class="tick" opacity="1" transform="translate(0,179.92215088282504)"><line stroke="#000" x2="-6"></line><text fill="#000" x="-9" dy="0.32em">50,000</text></g><g class="tick" opacity="1" transform="translate(0,143.80658105939006)"><line stroke="#000" x2="-6"></line><text fill="#000" x="-9" dy="0.32em">60,000</text></g><g class="tick" opacity="1" transform="translate(0,107.69101123595505)"><line stroke="#000" x2="-6"></line><text fill="#000" x="-9" dy="0.32em">70,000</text></g><g class="tick" opacity="1" transform="translate(0,71.57544141252004)"><line stroke="#000" x2="-6"></line><text fill="#000" x="-9" dy="0.32em">80,000</text></g><g class="tick" opacity="1" transform="translate(0,35.45987158908508)"><line stroke="#000" x2="-6"></line><text fill="#000" x="-9" dy="0.32em">90,000</text></g></g><g><path d="M0,359.57744783306583L2.740740740740741,359.59550561797755L5.481481481481482,359.55577849117174L8.222222222222223,359.56661316211876L10.962962962962964,359.47993579454254L13.703703703703702,359.4402086677368L16.444444444444446,359.39686998394865L19.185185185185183,359.35714285714283L21.925925925925927,359.2271268057785L24.666666666666668,359.3174157303371L27.407407407407405,359.2199036918138L30.148148148148152,359.1368378812199L32.88888888888889,359.0790529695024L35.629629629629626,358.92375601926165L38.37037037037037,358.92375601926165L41.11111111111111,358.73595505617976L43.851851851851855,358.7648475120385L46.59259259259259,358.6745585874799L49.333333333333336,358.4795345104334L52.074074074074076,358.51926163723914L54.81481481481481,357.60192616372393L57.55555555555556,358.2881219903692L60.296296296296305,357.90529695024077L63.03703703703704,357.8475120385233L65.77777777777779,357.44662921348316L68.51851851851852,357.0854735152488L71.25925925925925,356.87600321027287L74,356.3234349919743L76.74074074074073,355.92616372391655L79.48148148148148,356.09229534510433L82.22222222222221,354.98354735152486L84.96296296296296,354.7415730337079L87.70370370370371,352.73715890850724L90.44444444444444,351.9137239165329L93.18518518518518,349.4073033707865L95.92592592592592,344.8964686998395L98.66666666666667,341.4510433386838L101.4074074074074,336.0228731942215L104.14814814814815,328.2110754414125L106.88888888888889,323.49799357945426L109.62962962962962,309.3768057784912L112.37037037037037,296.3029695024077L115.11111111111111,284.5437399678973L117.85185185185186,266.13563402889247L120.59259259259261,249.47913322632422L123.33333333333333,241.47953451043338L126.07407407407408,240.96669341894062L128.8148148148148,232.07142857142856L131.55555555555557,229.70224719101122L134.2962962962963,227.56781701444623L137.03703703703704,221.89767255216694L139.77777777777777,229.61556982343498L142.5185185185185,235.72271268057784L145.25925925925927,246.14205457463885L148,247.76003210272876L150.74074074074073,256.44582664526484L153.48148148148147,266.5943017656501L156.22222222222223,268.52648475120384L158.96296296296296,267.8980738362761L161.70370370370372,274.62640449438203L164.44444444444443,280.2784911717496L167.1851851851852,284.5184590690209L169.92592592592592,281.7953451043339L172.66666666666666,282.0084269662921L175.40740740740742,288.6464686998395L178.14814814814815,293.60874799357947L180.88888888888889,288.80176565008026L183.62962962962962,291.51765650080256L186.37037037037035,299.96869983948636L189.1111111111111,306.02166934189404L191.85185185185185,310.8322632423756L194.59259259259258,313.6998394863563L197.33333333333334,316.2098715890851L200.07407407407408,318.9474317817014L202.8148148148148,321.66332263242373L205.55555555555557,324.14446227929375L208.2962962962963,326.7267255216693L211.03703703703707,329.39566613162117L213.77777777777777,332.158507223114L216.5185185185185,333.5742375601926L219.25925925925924,336.51404494382024L222,339.8475120385233L224.74074074074073,342.79093097913324L227.4814814814815,344.9975922953451L230.22222222222223,345.311797752809L232.96296296296296,347.12479935794545L235.70370370370372,349.35313001605135L238.44444444444446,350.8158105939005L241.18518518518522,352.292937399679L243.9259259259259,352.2965489566613L246.66666666666666,352.89606741573033L249.4074074074074,353.6328250401284L252.14814814814815,355.06661316211876L254.88888888888889,355.2219101123595L257.6296296296296,355.91894060995185L260.3703703703704,356.3126003210273L263.11111111111114,356.7207062600321L265.85185185185185,357.0854735152488L268.5925925925926,357.4177367576244L271.3333333333333,357.43218298555377L274.0740740740741,357.62359550561797L276.8148148148148,357.60914927768863L279.55555555555554,357.70666131621186L282.2962962962963,357.9666934189406L285.037037037037,358.18338683788124L287.77777777777777,358.18699839486356L290.51851851851853,358.5300963081862L293.2592592592593,358.4289727126806L296,358.5734349919743L298.74074074074076,358.55898876404495L301.48148148148147,358.53370786516854L304.22222222222223,358.7540128410915L306.96296296296293,358.93097913322634L309.7037037037037,358.9454253611557L312.44444444444446,359.00682182985554L315.18518518518516,359.1548956661316L317.9259259259259,359.21629213483146L320.6666666666667,359.3174157303371L323.40740740740745,359.29935794542536L326.14814814814815,359.3426966292135L328.88888888888886,359.37158908507223L331.6296296296296,359.4474317817014L334.3703703703704,359.5413322632424L337.1111111111111,359.48715890850724L339.85185185185185,359.5088282504013L342.5925925925926,359.5232744783307L345.3333333333333,359.5124398073836L348.0740740740741,359.516051364366L350.81481481481484,359.50521669341896L353.5555555555556,359.46548956661314L356.2962962962963,359.5232744783307L359.037037037037,359.39686998394865L361.77777777777777,359.4943820224719L364.51851851851853,359.37158908507223L367.25925925925924,359.3029695024077L370,359.3282504012841" stroke="rgb(141, 160, 203)" style="stroke-width: 4; fill: none;"></path></g></g></svg></div>
+
+<!-- Color Scale -->
+<script src="./chart_example_from_d3-graph-gallery_files/d3-scale-chromatic.v1.min.js"></script>
+
+
+<script>
+
+// set the dimensions and margins of the graph
+var margin = {top: 10, right: 30, bottom: 30, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+//Read the data
+d3.csv("pt1.csv", function(data) {
+
+    // List of groups (here I have one group per column)
+    var allGroup = d3.map(data, function(d){return(d.Type)}).keys()
+
+    // add the options to the button
+    d3.select("#selectButton")
+      .selectAll('myOptions')
+     	.data(allGroup)
+      .enter()
+    	.append('option')
+      .text(function (d) { return d; }) // text showed in the menu
+      .attr("value", function (d) { return d; }) // corresponding value returned by the button
+
+    // A color scale: one color for each group
+    var myColor = d3.scaleOrdinal()
+      .domain(allGroup)
+      .range(d3.schemeSet2);
+
+    // Add X axis --> it is a date format
+    var x = d3.scaleLinear()
+      .domain(d3.extent(data, function(d) { return d.Date; }))
+      .range([ 0, width ]);
+    svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x).ticks(7));
+
+    // Add Y axis
+    var y = d3.scaleLinear()
+      .domain([0, d3.max(data, function(d) { return +d.n; })])
+      .range([ height, 0 ]);
+    svg.append("g")
+      .call(d3.axisLeft(y));
+
+    // Initialize line with first group of the list
+    var line = svg
+      .append('g')
+      .append("path")
+        .datum(data.filter(function(d){return d.name==allGroup[0]}))
+        .attr("d", d3.line()
+          .x(function(d) { return x(d.year) })
+          .y(function(d) { return y(+d.n) })
+        )
+        .attr("stroke", function(d){ return myColor("valueA") })
+        .style("stroke-width", 4)
+        .style("fill", "none")
+
+    // A function that update the chart
+    function update(selectedGroup) {
+
+      // Create new data with the selection?
+      var dataFilter = data.filter(function(d){return d.name==selectedGroup})
+
+      // Give these new data to update line
+      line
+          .datum(dataFilter)
+          .transition()
+          .duration(1000)
+          .attr("d", d3.line()
+            .x(function(d) { return x(d.year) })
+            .y(function(d) { return y(+d.n) })
+          )
+          .attr("stroke", function(d){ return myColor(selectedGroup) })
+    }
+
+    // When the button is changed, run the updateChart function
+    d3.select("#selectButton").on("change", function(d) {
+        // recover the option that has been chosen
+        var selectedOption = d3.select(this).property("value")
+        // run the updateChart function with this selected option
+        update(selectedOption)
+    })
+
+})
+
+
+</script></body></html>

@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Proposal: | Football Players’ Value and Wage</title>
-  <meta name="description" content="Chapter 2 Proposal: | Football Players’ Value and Wage" />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <title>Chapter 2 Proposal | An Analysis Based on Epidemic Policy</title>
+  <meta name="description" content="Chapter 2 Proposal | An Analysis Based on Epidemic Policy" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Proposal: | Football Players’ Value and Wage" />
+  <meta property="og:title" content="Chapter 2 Proposal | An Analysis Based on Epidemic Policy" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Proposal: | Football Players’ Value and Wage" />
+  <meta name="twitter:title" content="Chapter 2 Proposal | An Analysis Based on Epidemic Policy" />
   
   
   
 
-<meta name="author" content="Yuehan Hu &amp; Wen Chen" />
+<meta name="author" content="YOUR NAMES HERE" />
 
 
-<meta name="date" content="2022-10-29" />
+<meta name="date" content="2022-11-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -69,18 +69,27 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">footballplayervalue</a></li>
+<li><a href="./">Analysis on Epidemic Policy</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="proposal.html"><a href="proposal.html"><i class="fa fa-check"></i><b>2</b> Proposal:</a></li>
+<li class="chapter" data-level="2" data-path="proposal.html"><a href="proposal.html"><i class="fa fa-check"></i><b>2</b> Proposal</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="proposal.html"><a href="proposal.html#research-topic"><i class="fa fa-check"></i><b>2.1</b> Research topic</a></li>
+<li class="chapter" data-level="2.2" data-path="proposal.html"><a href="proposal.html#data-availability"><i class="fa fa-check"></i><b>2.2</b> Data availability</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Data</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#sources"><i class="fa fa-check"></i><b>3.1</b> Sources</a></li>
 <li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#cleaning-transformation"><i class="fa fa-check"></i><b>3.2</b> Cleaning / transformation</a></li>
 <li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#missing-value-analysis"><i class="fa fa-check"></i><b>3.3</b> Missing value analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a></li>
+<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#covid-19-trend-analysis"><i class="fa fa-check"></i><b>4.1</b> COVID-19 Trend Analysis</a></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#vaccine-status-analysis"><i class="fa fa-check"></i><b>4.2</b> Vaccine Status Analysis</a></li>
+<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#policy-analysis"><i class="fa fa-check"></i><b>4.3</b> Policy Analysis</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>5</b> Interactive component</a></li>
 <li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
 <li class="divider"></li>
@@ -94,7 +103,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Football Players’ Value and Wage</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Analysis Based on Epidemic Policy</a>
           </h1>
         </div>
 
@@ -103,47 +112,17 @@
 
             <section class="normal" id="section-">
 <div id="proposal" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Proposal:<a href="proposal.html#proposal" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>2.1 Research topic</p>
-<p>In today’s professional football market, how to quantify the professional skills of players, and whether their annual performance can be predicted based on the players’ information will directly affect our judgment of their commercial value. Through certain visualization and statistical learning methods, the influencing factors of players’ professional judgment are explored, and the interesting patterns between players’ personal information and annual reactions are driven from data.</p>
-<p>Questions:</p>
-<p>Q1: Explore the factors that affect player Value through a variety of data visualization methods.</p>
-<p>Q2: Through a variety of data visualization methods, explore the factors that affect the player’s Wage, which factors have a significant impact on the player’s Wage, and make a comparative analysis with the factors that affect the player’s Value.</p>
-<p>2.2 Data availability</p>
-<p>There are a lot of datasets on kaggle webside, we together chose the Football (FIFA - 2019) dataset. The link is
-URL: (<a href="https://www.kaggle.com/datasets/devansodariya/football-fifa-2019-dataset?resource=download" class="uri">https://www.kaggle.com/datasets/devansodariya/football-fifa-2019-dataset?resource=download</a>).</p>
-<p>This Dataset Contains all Information of players who participated in the
-FIFA-2019 League and consists of all the parameters, which a Player’s ability can be measured some of the parameters included in the dataset. Our project will explore the factors that affect player Value and Wage through data visualization methods. The dataset includes 18,207 rows, 89 columns, and mainly includes the following fields.</p>
-<p>This Dataset consists of 89 Features including the parameters, by which a Player’s ability can be measured some of the parameters included in the dataset are,
-Age, Skill Moves, Work Rate, Body Type, joined year, Agility.
-This data set is large and can be used for data cleaning, data transformation, missing value processing, and data visualization, to explore the factors that affect Football Players’ Value and Wage, and to explore the factors affecting Football Players’ Value and Wage in a multi-dimensional way. factors to explore which factors have a significant impact on Football Players’ Value and Wage.</p>
-<p>This Dataset consists of 89 variables:
-ID.</p>
-<p>Name:Name of Player</p>
-<p>Age: Age of Player</p>
-<p>Photo:Photo of Player</p>
-<p>Nationality:Nationality of Player</p>
-<p>Flag:Flag of Player</p>
-<p>Overall: All-round ability of players</p>
-<p>Potential: player’s potential</p>
-<p>Club:Club of players</p>
-<p>Value:Value of players</p>
-<p>Wage: Wage of players</p>
-<p>Preferred.Foot: Left or Right.</p>
-<p>International.Reputation: International Reputation of players</p>
-<p>Weak.Foot: Weak Foot</p>
-<p>Skill Moves: Describes various skill set of the player</p>
-<p>Work Rate: Work rate of player</p>
-<p>Body Type: Body type of player (like High, lean, Courtois, moderate)</p>
-<p>Real.Face:Real Face(Yes or NO)</p>
-<p>Joined: Joining year of player</p>
-<p>Height:Height of players.</p>
-<p>Weight:Weight of players.</p>
-<p>Agility: Agility of player (numerical values)</p>
-<p>SprintSpeed: Sprinting Speed of player</p>
-<p>Reactions: Reaction on the Numerical Scale
-etc…</p>
+<h1><span class="header-section-number">Chapter 2</span> Proposal<a href="proposal.html#proposal" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="research-topic" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Research topic<a href="proposal.html#research-topic" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This report will focus on the development of the outbreak, the implementation of outbreak prevention and control policies in each U.S. state, and the effectiveness of outbreak prevention and control policies. In the course of the analysis, different graphs will be put together for comparison, providing evidence of the effectiveness of vaccines and other epidemic prevention policies. The hope of this paper is to find those tools that can significantly improve the spread of COVID-19. This may be of slightly less use for viruses whose current virulence has diminished, but it does have significant implications for policy implementation and for future public health events that may be encountered.</p>
+</div>
+<div id="data-availability" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Data availability<a href="proposal.html#data-availability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Data for the report will be obtained from Centers for Disease Control and Prevention (CDC) at the URL <a href="https://covid.cdc.gov/covid-data-tracker/#datatracker-home" class="uri">https://covid.cdc.gov/covid-data-tracker/#datatracker-home</a>. The dataset selected for the report is from the CDC’s COVID Data Tracker. Several data files were considered for the analysis and visualization of the report. The first is Case, Death, &amp; Laboratory Testing Trends by Location, a data file that monitors the rise and fall of COVID-19 cases, deaths, testing volume and percent positivity, nationally and by state. The temporal frequency of the data is weekly. The report will also show Case &amp; Death Trends by Demographics, a data file that counts trends in case and death data by gender, race, and other disaggregated methods. In this dataset, interaction methods will be appropriately applied to demonstrate category characteristics. Next is Vaccination Distribution &amp; Coverage. this dataset contains the distribution of Vaccinations with weekly frequency. This dataset is able to provide variation in the number of vaccines by state. When the number of Vaccinations increases, it somewhat reflects the importance of COVID-19 to the state government. Finally, the report uses Social Impact &amp; Prevention, a dataExplore the social impacts of COVID-19 and see how human movement and COVID-19 prevention measures correspond to trends in the pandemic. It was released by the state government at the time the policy was issued. In the report, this will be shown in the same graph as the number of cases and deaths, reacting to the impact of the policy on the prevention and control of the epidemic. Also, interactive methods will be used to differentiate the performance of different states.<br />
+In general, the report focuses on the following elements by presenting chronological charts, comparative charts with the inclusion of interactive features. First is the change in the number of cases, deaths and tests, and graphs of these data will provide detailed characteristics of the various stages of the outbreak. Next, the distribution of vaccines by state and vaccine coverage is shown on a map of the entire U.S. This provides a snapshot of how different states are approaching the outbreak. Another key piece of data is prophylaxis, which compares state outbreaks with prophylaxis data to show whether vaccination policies are having the desired effect. Also, the interactive approach will show the different measures and policy strengths of different states in the face of an outbreak.</p>
 
+</div>
 </div>
             </section>
 
@@ -182,7 +161,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yuehanhu/footballplayervalue/edit/main/proposal.Rmd",
+"link": "https://github.com/nevillefate/EpidemicPolicy/edit/main/proposal.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -190,7 +169,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/yuehanhu/footballplayervalue/blob/main/proposal.Rmd",
+"link": "https://github.com/nevillefate/EpidemicPolicy/blob/main/proposal.Rmd",
 "text": null
 },
 "download": null,
@@ -205,6 +184,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -1,9 +1,14 @@
 introduction
 proposal
+research-topic
+data-availability
 data
 sources
 cleaning-transformation
 missing-value-analysis
 results
+covid-19-trend-analysis
+vaccine-status-analysis
+policy-analysis
 interactive-component
 conclusion
